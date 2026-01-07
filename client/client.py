@@ -13,26 +13,27 @@ def start_client():
     
     # Création de la socket
     client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    
-    try:
-        client.connect((SERVER_IP, PORT))
-        print(f"Connecté au serveur !")
-        
-        counter = 0
-        while True:
-            msg = f"Message {counter} de {MY_ID}"
-            client.send(msg.encode('utf-8'))
+    connected = False
+    while not connected :
+        try:
+            client.connect((SERVER_IP, PORT))
+            print(f"Connecté au serveur !")
             
-            # Attente de la réponse
-            reponse = client.recv(1024).decode('utf-8')
-            print(f"Serveur a répondu : {reponse}")
-            
-            counter += 1
-            time.sleep(3) # Pause de 3 secondes
-            
-    except Exception as e:
-        print(f"Erreur ou déconnexion : {e}")
-        client.close()
+            counter = 0
+            while True:
+                msg = f"Message {counter} de {MY_ID}"
+                client.send(msg.encode('utf-8'))
+                
+                # Attente de la réponse
+                reponse = client.recv(1024).decode('utf-8')
+                print(f"Serveur a répondu : {reponse}")
+                
+                counter += 1
+                time.sleep(3) # Pause de 3 secondes
+                
+        except Exception as e:
+            print(f"Erreur ou déconnexion : {e}")
+            client.close()
 
 if __name__ == "__main__":
     # Petit délai aléatoire au démarrage pour ne pas que les 3 se connectent à la milliseconde près

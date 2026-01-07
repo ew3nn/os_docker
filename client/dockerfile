@@ -3,4 +3,3 @@ WORKDIR /app
 COPY . .
 # CMD sera remplacé par le nom du script (server.py ou client.py)
 CMD ["python", "client.py"] 
-# (Mets "client.py" dans le Dockerfile du client)

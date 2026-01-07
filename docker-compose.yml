@@ -1,9 +1,7 @@
-version: '3.8'
-
 services:
   mon_serveur:
     build: ./server
-    container_name: serv
+    container_name: mon_serveur
     ports:
       - "65432:65432"
     environment:
@@ -16,9 +14,9 @@ services:
     container_name: client_python
     environment:
       - PYTHONUNBUFFERED=1
-      - SERVER_HOST=serv # Le client utilisera ce nom pour se connecter
+      - SERVER_HOST=mon_serveur # Le client utilisera ce nom pour se connecter
     depends_on:
-      - serv
+      - mon_serveur
     networks:
       - reseau_socket
     # Si le client se lance trop vite avant le serveur, il redémarrera automatiquement

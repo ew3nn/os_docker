@@ -1,0 +1,28 @@
+version: '3.8'
+
+services:
+  mon_serveur:
+    build: ./server
+    container_name: serv
+    ports:
+      - "65432:65432"
+    environment:
+      - PYTHONUNBUFFERED=1
+    networks:
+      - reseau_socket
+
+  mon_client:
+    build: ./client
+    container_name: client_python
+    environment:
+      - PYTHONUNBUFFERED=1
+      - SERVER_HOST=serv # Le client utilisera ce nom pour se connecter
+    depends_on:
+      - serv
+    networks:
+      - reseau_socket
+    # Si le client se lance trop vite avant le serveur, il redémarrera automatiquement
+    restart: on-failure 
+
+networks:
+  reseau_socket:

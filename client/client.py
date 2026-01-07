@@ -12,10 +12,11 @@ def start_client():
     print(f"Tentative de connexion à {SERVER_IP}:{PORT}...")
     
     # Création de la socket
-    client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    
     connected = False
     while not connected :
         try:
+            client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
             client.connect((SERVER_IP, PORT))
             print(f"Connecté au serveur !")
             

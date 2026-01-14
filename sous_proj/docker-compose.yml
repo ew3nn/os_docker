@@ -1,7 +1,6 @@
-version: '3.8'
-
 services:
   c1:
+    build: .
     image: mon-app-socket
     container_name: c1
     ports:
@@ -10,7 +9,7 @@ services:
       - MY_NAME=c1
       # Local : on utilise le nom du service Docker
       - ADDR_C1=c1:5000
-      - ADDR_C2=c2:5000 
+      - ADDR_C2=c2:5000
       # Distant : on tape sur l'IP de la VM 2
       - ADDR_C3=192.168.1.20:6003
       - ADDR_C4=192.168.1.20:6004

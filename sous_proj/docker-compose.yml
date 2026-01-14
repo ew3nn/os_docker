@@ -1,4 +1,4 @@
-services:
+services: #m
   c1:
     build: .
     image: mon-app-socket

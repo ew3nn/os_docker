@@ -58,7 +58,7 @@ def send_message(target_name, msg):
 # Lancement du serveur en arrière-plan
 threading.Thread(target=start_server).start()
 
-# Attente que tout le monde démarre
+# Attente que tout le monde démarreezj
 time.sleep(5)
 
 # 3. Simulation : On envoie un message à quelqu'un au hasard toutes les 5s

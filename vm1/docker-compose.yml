@@ -4,8 +4,8 @@ services: #m
     image: mon-app-socket
     container_name: c1
     ports:
-      - "5000:5000"       # Public
-      - "5001-5010:5001-5010" # Réservé pour le privé
+      - "5001:5000"       # Public
+      - "5050-5010:5001-5010" # Réservé pour le privé
     environment:
       - MY_NAME=c1
       # Local : on utilise le nom du service Docker
@@ -19,7 +19,7 @@ services: #m
     image: mon-app-socket
     container_name: c2
     ports:
-      - "5000:5000"       # Public
+      - "5002:5000"       # Public
       - "5001-5010:5001-5010" # Réservé pour le privé
     environment:
       - MY_NAME=c2

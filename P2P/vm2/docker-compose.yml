@@ -5,7 +5,7 @@ services: #m
     container_name: c3
     ports:
       - "5003:5000"       # Public
-      - "5300-5310:5001-5010" # Réservé pour le privé
+      - "5300-5310:5300-5310" # Réservé pour le privé
     environment:
       - MY_NAME=c3
       # Local : on utilise le nom du service Docker
@@ -20,7 +20,7 @@ services: #m
     container_name: c4
     ports:
       - "5004:5000"       # Public
-      - "5400-5410:5001-5010" # Réservé pour le privé
+      - "5400-5410:5400-5410" # Réservé pour le privé
     environment:
       - MY_NAME=c4
       - ADDR_C3=c3:5003

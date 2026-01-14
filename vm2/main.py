@@ -51,9 +51,9 @@ def send_message(target_name, msg):
         full_message = f"De {MY_NAME} pour {target_name} : {msg}"
         s.send(full_message.encode('utf-8'))
         s.close()
-        print(f"[{MY_NAME}] 📤 ENVOYÉ vers {target_name} ({host}:{port})")
+        print(f"[{MY_NAME}] ENVOYÉ vers {target_name} ({host}:{port})")
     except Exception as e:
-        print(f"[{MY_NAME}] ⚠️ Échec vers {target_name} : {e}")
+        print(f"[{MY_NAME}] Échec vers {target_name} : {e}")
 
 # Lancement du serveur en arrière-plan
 threading.Thread(target=start_server).start()

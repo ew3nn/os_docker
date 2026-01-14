@@ -6,9 +6,15 @@ import random
 import json
 
 MY_NAME = os.getenv('MY_NAME', 'Unknown')
-PUBLIC_PORT = 5000
-# Plage de ports pour les chats privés
-PRIVATE_PORT_RANGE = range(5001, 5011)
+
+# --- MODIFICATION ICI ---
+# On récupère le port public depuis la config, sinon 5000 par défaut
+PUBLIC_PORT = int(os.getenv('MY_PUBLIC_PORT', 5000))
+
+# On récupère le début de la plage privée, sinon 5001 par défaut
+start_range = int(os.getenv('PRIVATE_RANGE_START', 5001))
+# On définit la plage (ex: de 5100 à 5110)
+PRIVATE_PORT_RANGE = range(start_range, start_range + 10)
 
 # L'ANNUAIRE (IP:Port)
 PEERS = {
@@ -110,7 +116,8 @@ def handle_client(conn):
 
 def start_public_server():
     server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    server.bind(('0.0.0.0', PUBLIC_PORT))
+    # Utilise la variable PUBLIC_PORT au lieu de 5000 en dur
+    server.bind(('0.0.0.0', PUBLIC_PORT)) 
     server.listen(5)
     print(f"[{MY_NAME}] 🟢 Lobby Public ouvert sur {PUBLIC_PORT}")
     

@@ -8,6 +8,8 @@ services: #m
       - "5300-5310:5300-5310" # Réservé pour le privé
     environment:
       - MY_NAME=c3
+      - MY_PUBLIC_PORT=5003
+      - PRIVATE_RANGE_START=5300
       # Local : on utilise le nom du service Docker
       - ADDR_C3=c3:5003
       - ADDR_C4=c4:5004
@@ -23,6 +25,8 @@ services: #m
       - "5400-5410:5400-5410" # Réservé pour le privé
     environment:
       - MY_NAME=c4
+      - MY_PUBLIC_PORT=5004
+      - PRIVATE_RANGE_START=5400
       - ADDR_C3=c3:5003
       - ADDR_C4=c4:5004
       - ADDR_C1=192.168.200.13:5001

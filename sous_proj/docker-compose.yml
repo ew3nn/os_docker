@@ -11,8 +11,8 @@ services: #m
       - ADDR_C1=c1:5000
       - ADDR_C2=c2:5000
       # Distant : on tape sur l'IP de la VM 2
-      - ADDR_C3=192.168.1.20:6003
-      - ADDR_C4=192.168.1.20:6004
+      - ADDR_C3=192.200.17.20:6003
+      - ADDR_C4=192.200.17.20:6004
 
   c2:
     image: mon-app-socket

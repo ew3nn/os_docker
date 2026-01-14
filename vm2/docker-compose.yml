@@ -1,0 +1,27 @@
+services: #m
+  c3:
+    build: .
+    image: mon-app-socket
+    container_name: c3
+    ports:
+      - "6003:5000" #on expose les ports pour l'éxterieur
+    environment:
+      - MY_NAME=c3
+      # Local : on utilise le nom du service Docker
+      - ADDR_C3=c3:5000
+      - ADDR_C4=c4:5000
+      # On passe par l'ip
+      - ADDR_C1=192.168.13.20:6001
+      - ADDR_C2=192.168.13.20:6002
+
+  c4:
+    image: mon-app-socket
+    container_name: c4
+    ports:
+      - "6004:5000"
+    environment:
+      - MY_NAME=c4
+      - ADDR_C3=c3:5000
+      - ADDR_C4=c4:5000
+      - ADDR_C1=192.168.13.20:6001
+      - ADDR_C2=192.168.13.20:6002

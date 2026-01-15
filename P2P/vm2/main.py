@@ -47,6 +47,7 @@ def start_private_host(port, target_name):
     print(f"[{MY_NAME}] 🔒 Création salon privé sur le port {port} pour {target_name}")
     
     server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    server.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
     server.bind(('0.0.0.0', port))
     server.listen(1)
     

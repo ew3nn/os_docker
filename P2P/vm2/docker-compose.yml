@@ -14,8 +14,8 @@ services: #m
       - ADDR_C3=c3:5003
       - ADDR_C4=c4:5004
       # On passe par l'ip
-      - ADDR_C1=192.168.200.13:6001
-      - ADDR_C2=192.168.200.13:6002
+      - ADDR_C1=192.168.200.13:5001
+      - ADDR_C2=192.168.200.13:5002
 
   c4:
     image: mon-app-socket

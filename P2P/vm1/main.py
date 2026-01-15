@@ -80,7 +80,7 @@ def join_private_chat(host_ip, port):
         msg = s.recv(1024).decode('utf-8')
         print(f"[{MY_NAME}] 🔒 (Privé) L'hôte dit : {msg}")
         
-        s.send(f"Merci pour l'invit, c'est super calme ici.".encode('utf-8'))
+        s.send(f"[{MY_NAME}] Merci pour l'invit, c'est super calme ici.".encode('utf-8'))
         s.close()
     except Exception as e:
         print(f"[{MY_NAME}] ❌ Impossible de rejoindre le privé : {e}")

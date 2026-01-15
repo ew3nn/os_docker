@@ -115,6 +115,7 @@ def handle_client(conn):
 
 def start_public_server():
     server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    server.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
     # Utilise la variable PUBLIC_PORT au lieu de 5000 en dur
     server.bind(('0.0.0.0', PUBLIC_PORT)) 
     server.listen(5)

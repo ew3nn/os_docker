@@ -1,7 +1,6 @@
 services: #m
   c1:
-    build: .
-    image: mon-app-socket
+    image: 192.168.200.17:6000/mon-app-socket
     container_name: c1
     ports:
       - "5001:5000"       # Public
@@ -18,7 +17,7 @@ services: #m
       - ADDR_C4=192.168.200.17:5004
 
   c2:
-    image: mon-app-socket
+    image: 192.168.200.17:6000/mon-app-socket
     container_name: c2
     ports:
       - "5002:5000"       # Public

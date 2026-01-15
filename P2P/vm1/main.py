@@ -70,6 +70,7 @@ def start_private_host(port, target_name):
         server.close()
 
 def join_private_chat(host_ip, port, target_name):
+    global defeat, victoty
     print(f"[{MY_NAME}] - rejoins le salon privé de {target_name}")
     time.sleep(1)
     try:
@@ -78,6 +79,10 @@ def join_private_chat(host_ip, port, target_name):
         my_choice = random.choice(['rock', 'paper', 'scissors'])
         s.send(f"{my_choice}".encode('utf-8'))
         result = s.recv(1024).decode('utf-8')
+        if "perdu" in result:
+            victoty += 1
+        elif "gagné" in result:
+            defeat += 1
         print(result)
         s.send(f"[{MY_NAME}] - gg".encode('utf-8'))
         s.close()

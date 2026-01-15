@@ -97,7 +97,7 @@ def handle_client(conn):
             print(f"[{MY_NAME}] - invit de {sender}")
             host_ip = get_peer_ip(sender)
             if host_ip:
-                threading.Thread(target=join_private_chat, args=(host_ip, message['port'])).start()
+                threading.Thread(target=join_private_chat, args=(host_ip, message['port'], sender)).start()
 
     except Exception as e:
         print(f"[{MY_NAME}] - Erreur lecture JSON: {e}")

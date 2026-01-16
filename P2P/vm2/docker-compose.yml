@@ -1,6 +1,6 @@
 services:
   c3:
-    image: registry:6000/mon-app-socket
+    image: localhost:6000/mon-app-socket
     container_name: c3
     ports:
       - "5003:5000"       # Public
@@ -17,7 +17,7 @@ services:
       - ADDR_C2=192.168.200.13:5002
 
   c4:
-    image: registry:6000/mon-app-socket
+    image: localhost:6000/mon-app-socket
     container_name: c4
     ports:
       - "5004:5000"       # Public

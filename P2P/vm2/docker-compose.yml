@@ -1,12 +1,4 @@
 services:
-  registry:
-    image: registry:2
-    container_name: registry
-    volumes:
-      - ./registry_data:/var/lib/registry
-    ports:
-      - "6000:5000"
-    restart: always
   c3:
     image: registry:6000/mon-app-socket
     container_name: c3
